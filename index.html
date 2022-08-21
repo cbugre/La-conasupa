@@ -6,11 +6,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <style>
 body {font-family: "Times New Roman", Georgia, Serif;}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display";
   letter-spacing: 5px;
+}
+.page_title {
+    padding: 30px 0px;
+}
+.page_title h1 {
+    color: #c0392b;
+    font-weight: 700;
+    line-height: 2;
+    margin-bottom: 0;
+    position: relative;
+    text-transform: capitalize;
+}
+.page_title h1::before {
+    background: #c0392b;
+    width: 70px;
+    height: 2px;
+    position: absolute;
+    content: '';
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page_title h1::after {
+    position: absolute;
+    content: '';
+    background: #fbc531;
+    width: 30px;
+    height: 2px;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*Menu starts*/
+.menu_tab {
+    margin: 0 auto;
+    justify-content: center;
+}
+.nav-item {
+    display: inline-block;
+    text-align: center;
+}
+.nav-tabs .nav-link{
+    transition: .3s;
+}
+.nav-tabs .nav-link.active {
+    background: #c0392b;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #c0392b;
+    text-transform: capitalize;
+}
+.nav-link {
+    color: #000;
+}
+.nav-tabs .nav-link:hover {
+    background: #c0392b;
+    color: #fff;
+    border: 1px solid #c0392b;
+}
+.single_menu {
+    position: relative;
+    margin-bottom: 75px;
+    transition: .3s;
+}
+.single_menu:hover img{
+    -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+
+}
+.single_menu img {
+    width: 33%;
+    position: absolute;
+    height: 140px;
+    -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    transition: .3s;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.menu_content {
+    padding-left: 200px;
+}
+.menu_content h4 {
+    font-size: 25px;
+    font-weight: 300;
+    border-bottom: 1px dashed #c0392b;
+    line-height: 2;
+    text-transform: capitalize;
+}
+.menu_content h4 span {
+    font-size: 25px;
+    font-weight: 800;
+    float: right;
+    font-style: italic;
+    color: #c0392b;
+}
+.menu_content p {
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.menu_btn.btn.btn-danger {
+    margin: 0 auto;
+    display: block;
+    width: 140px;
+}
+/*Menu ends*/
+.menu_btn.btn.btn-danger {
+	margin: 0 auto;
+	display: block;
+	width: 140px;
+}
+.btn.btn-danger {
+	background: #c0392b;
+	border: 1px solid #c0392b;
+	transition: .3s;
+	position: relative;
+	z-index: 1;
+	text-transform: capitalize;
+	font-weight: 700;
+	overflow: hidden;
+	padding: 15px 25px;
+}
+.btn.btn-danger::before {
+	position: absolute;
+	content: '';
+	background: #e74c3c;
+	width: 100%;
+	height: 100%;
+	left: -100%;
+	top: 100%;
+	transition: .3s;
+	z-index: -1;
+}
+.btn.btn-danger:hover:before{
+    top: 0;
+    left: 0;
 }
 </style>
 </head>
@@ -24,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#menu" class="w3-bar-item w3-button">Menu</a>
+	<a href="gallery.html" class="w3-bar-item w3-button">Gallery</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
     </div>
   </div>
@@ -42,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <div class="w3-col m6 w3-padding-large">
      <img src="images/store.jpg" class="w3-round w3-image w3-opacity-min" alt="store" width="600" height="750">
     </div>
 
@@ -52,9 +193,8 @@ h1, h2, h3, h4, h5, h6 {
      <p class="w3-large">La Conasupo offers authentic Mexican tacos, quesadillas and sopes. Make sure to try the house specialty, which is the lamb barbacoa and consomé (lamb soup). Everything is made fresh from scratch in our kitchen. Portions are very large and heavy on the meat. It’s a<span class="w3-tag w3-light-grey"> carnivore’s delight.</span></p>
      
  <p class="w3-large">Check out our Mexican snacks and groceries. You’ll find fruit waters, sodas and juices. Also sweet bread, candies, cakes, chips and nuts, all with a Latin flare. We also have specialty cheeses and creams, dried
-chilies, salsas and everything you might need to cook your favorite Latin dishes at home. And don’t forget to
-	 pick up a piñata for your next party.</p>
-<p class="w3-large w3-text-grey w3-hide-medium">Order a deliciously prepared whole or half lamb for your next celebration, and treat your guests to a special
+chilies, salsas and everything you might need to cook your favorite Latin dishes at home. And don’t forget to pick up a piñata for your next party.</p>
+<p class="w3-large">Order a deliciously prepared whole or half lamb for your next celebration, and treat your guests to a special
 experience that brings them back to life in Mexico</p>
 <h2 class="w3-center">Our Vision</h2>
 <p class="w3-large">In our taqueria, enjoy authentic Mexican food just as if you were in Mexico. When you're finished eating, find
@@ -62,28 +202,331 @@ all your favorite Latin-inspired snacks and groceries in our store.</p>
     </div>
   </div>
   <hr>
-  <!-- Business Biography -->
-  <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large">
-      <h1 class="w3-center">Our Story</h1><br>
-     <p class="w3-large">Pablo and Carlos, two life-long friends from Puebla, Mexico started La Conasupo 20 years ago to bring hard-
-to-find Mexican specialty groceries and authentic Mexican taqueria food to Seattle’s Mexican population.Even today, La Conasupo is one of the few restaurants that serves authentic lamb barbacoa and consomé just like they're prepared in the markets of Mexico. Besides the barbacoa, the tingas, chicharron and
-carnitas are also customer favorites.These are authentic recipes seldom found in the Seattle area.</p>
-     
- <p class="w3-large">People often ask the meaning of La Conasupo. Conasupo is an acronym of “Compañía Nacional de Subsistencias Populares” and was the name of a government-subsidized supermarket chain throughout Mexico from the 1960’s to 1990’s. La Conasupo is a household name in Mexico; therefore, the logical choice to name a Seattle grocery store that provides products you’d find at home in Mexico.</p>
-	    
-<p class="w3-large">In 2020, the original founders began talking about retiring and going back home to Mexico. Ricardo, who had known Pablo for 10 years, became unemployed during the pandemic and decided to buy the restaurant.Now Ricardo runs La Conasupo, with help from his son, daughter-in-law, friend and a few employees.</p>
-	    
-<p class="w3-large">Seattle’s La Conasupo has been a well-kept secret in the Greenwood neighborhood up until recently. It was like a special club that only Spanish-speakers knew about.English-speaking locals had no idea of its existence until the Ricardo began making changes to make the store and restaurant more visible and
-inviting to everyone.</p>
-	    
-<p class="w3-large">If you’d like to experience the real market-style food of Mexico, we invite you to drop in for a visit and try one
-of our delicious quesadillas or tacos. Make sure you come hungry, because the portions are huge.</p>
-<div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="images/LaConasupo-9893.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-    </div>
-	    
-    </div>
+
+  <!-- Menu Section -->
+<div id="menu">
+  <section id="our_menu" class="pt-5 pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page_title text-center mb-4">
+						<h1>our menu</h1>
+						<div class="single_line"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="nav nav-tabs menu_tab mb-4" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="tacos-tab" data-toggle="tab" href="#tacos" role="tab">Tacos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="quesa-tab" data-toggle="tab" href="#quesa" role="tab">Quesadillas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="sope-tab" data-toggle="tab" href="#sope" role="tab">Sopes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="soup-tab" data-toggle="tab" href="#soup" role="tab">Soups</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="meat-tab" data-toggle="tab" href="#meat" role="tab">Meats</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="plate-tab" data-toggle="tab" href="#plate" role="tab">Small Plates</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="side-tab" data-toggle="tab" href="#side" role="tab">Sides</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="drink-tab" data-toggle="tab" href="#drink" role="tab">Drinks</a>
+					</li>
+				</ul>
+        	</div>
+			<div class="row">
+				<div class="tab-content col-lg-12" id="myTabContent">
+					<div class="tab-pane fade show active" id="tacos" role="tabpanel" aria-labelledby="tacos-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="tacos basic meat">
+									<div class="menu_content">
+										<h4>One basic meat  <span>$5.99</span></h4>
+										<p>Corn tortillas topped with your choice of meat. Onions, cilantro and salsa on the side. </p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9702.jpg" alt="tacos premium meat">
+									<div class="menu_content">
+										<h4>One premium meat <span>$6.99</span></h4>
+										<p>Corn tortillas topped with your choice of lamb barbacoa or tongue. Onions, cilantro and salsa on the side.</p>
+									</div>
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9638.jpg" alt="mushroom or potato">
+									<div class="menu_content">
+										<h4>Mushroom / potato  <span>$4.99</span></h4>
+										<p>Corn tortillas topped with mashed potatoes with a few chile strips - a bit spicy or topped with sliced mushrooms sauteed with onions and epazote.</p>
+									</div>
+								</div>
+								</div>
+								
+							</div>
+							
+						</div>
+					<div class="tab-pane fade" id="quesa" role="tabpanel" aria-labelledby="quesa-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="pizza">
+									<div class="menu_content">
+										<h4>Cheese/requeson(Mexican ricotta)  <span>$10.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="salad">
+									<div class="menu_content">
+										<h4>Mushroom/potato<span>$10.99</span></h4>
+										<p>Aplaceholder.</p>
+									</div>
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="green tea">
+									<div class="menu_content">
+										<h4>One premium meat<span>$11.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="meat">
+									<div class="menu_content">
+										<h4>Steak & potato<span>$13.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								</div>
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Combination of 2 meats/veggies<span>$13.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					<div class="tab-pane fade" id="sope" role="tabpanel" aria-labelledby="sope-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Basic (refried black beans, lettuce & cotija cheese) <span>$9.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="black coffee">
+									<div class="menu_content">
+										<h4>Mushrooms / potato <span>$10.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="fried rice">
+									<div class="menu_content">
+										<h4>One basic meat  <span>$11.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="meat">
+									<div class="menu_content">
+										<h4>One premium meat<span>$13.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Pork chops <span>$13.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="black coffee">
+									<div class="menu_content">
+										<h4>Steak <span>$13.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="fried rice">
+									<div class="menu_content">
+										<h4>Combination of 2 meats/veggies  <span>$14.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="soup" role="tabpanel" aria-labelledby="soup-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Consomé (lamb broth with garbanzos, onion, cilantro)  <span>$8.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="black coffee">
+									<div class="menu_content">
+										<h4>Consomé with lamb meat <span>$12.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="fried rice">
+									<div class="menu_content">
+										<h4>Menudo (only weekends) <span>$11.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					<div class="tab-pane fade" id="meat" role="tabpanel" aria-labelledby="meat-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Carnitas  <span>$14.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="black coffee">
+									<div class="menu_content">
+										<h4>Barbacoa <span>$24.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="fried rice">
+									<div class="menu_content">
+										<h4>Asada <span>$19.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="meat">
+									<div class="menu_content">
+										<h4>Chicken Tinga <span>$19.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Others  <span>$inquire</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="plate" role="tabpanel" aria-labelledby="plate-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="burger">
+									<div class="menu_content">
+										<h4>Small deep-fried potato tacos   <span>$10.50</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					<div class="tab-pane fade" id="side" role="tabpanel" aria-labelledby="side-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="burger">
+									<div class="menu_content">
+										<h4>Side Rice  <span>$2.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="burger">
+									<div class="menu_content">
+										<h4>Side Bean  <span>$2.99</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="burger">
+									<div class="menu_content">
+										<h4>Pkg Tortillas  <span>$1.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+							</div>
+					<div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="drink-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Mexican Fruit Water <span>$4.00</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg" alt="burger">
+									<div class="menu_content">
+										<h4>Mexican Coke <span>$3.50</span></h4>
+										<p>placeholder.</p>
+									</div>
+									</div>
+									</div>
+								<div class="col-md-6">
+								<div class="single_menu">
+									<img src="images/LaConasupo-9657.jpg"  alt="burger">
+									<div class="menu_content">
+										<h4>Jarritos <span>$2.75</span></h4>
+										<p>placeholder.</p>
+									</div>
+								</div>
+							</div>
+							</div>
+					</div>		
+						
+		 </div>		
+				<a href="#" class=" menu_btn btn btn-danger">Top</a>
+	 </div>
+	</div>
+</section>
 	</div>
   <hr>
 <div class="w3-col m6 w3-padding-large w3-hide-small">
@@ -93,40 +536,8 @@ of our delicious quesadillas or tacos. Make sure you come hungry, because the po
       <h5 class="w3-center"></h5>
       <p class="w3-large">Check out our Mexican snacks and Groceries.You'll find fruit waters,sodas and juice.Also sweet bread,candies,chips and nuts,all with a latin flare we also have specialty cheeses and creams,dried chillies, salsas and everything you might need to cook your favorite Latin dishes at home. And don't forget to pick up a pinata for your next Party.</p>
     </div>
-	<hr>
-  <!-- Menu Section -->
-  <div class="w3-row w3-padding-64" id="menu">
-    <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">Our Menu</h1><br>
-      <h4>Tacos</h4>
-      <p class="w3-text-grey">typical, traditional Mexican tacos</p><br>
-    
-      <h4>Quesadillas</h4>
-      <p class="w3-text-grey">the 13-inch quesadillas and generous meat servings in every dish </p><br>
-    
-      <h4>Sopes</h4>
-      <p class="w3-text-grey">10-inch sopes-similar to a tostada, but thicker hand-made tortilla</p><br>
-    
-      <h4>Soups</h4>
-      <p class="w3-text-grey">red pepper and garlic, with green onions</p><br>
-    
-      <h4>Meats by the pound</h4>
-      <p class="w3-text-grey">Nothing is frozen, fresh from the farms</p><br>  
-	
-	<h4>Small Plates</h4>
-      
-	<h4>Sides</h4>
-      
-	<h4>Drinks</h4>
-      <p class="w3-text-grey">Assorted drinks</p> 
-    </div>
-    
-    <div class="w3-col l6 w3-padding-large">
-      <img src="images/LaConasupo-9798.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
-    </div>
-  </div>
-
-  <hr>
+	</div>
+	<hr>	
 
   <!-- Contact Section -->
   <div class="w3-container w3-padding-64" id="contact">
@@ -145,7 +556,9 @@ of our delicious quesadillas or tacos. Make sure you come hungry, because the po
   
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Designed by Jonathan Tsegai|Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+ <p><a href="story.html" title="bibliography" target="_blank" class="w3-hover-text-green">Our Story</a> | <a href="gallery.html" title="images" target="_blank" class="w3-hover-text-green">Photo Gallery</a></p>
+	
+<p>Designed by Jonathan Tsegai|Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a> |&copy;La Conasupa | <a href="https://goo.gl/maps/xQp1319879vAFu367" title="La Conasupa" target="_blank" class="w3-hover-text-green">Locate Us Here</a></p>
 </footer>
 
 </div>
